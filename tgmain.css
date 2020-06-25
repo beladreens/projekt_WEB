@@ -2,6 +2,16 @@ body{
     background: #96815e;
     width: auto;
 }
+.tlo{
+    position: fixed;
+    overflow: hidden;
+    opacity: 70%;
+    top: -350px;
+    z-index: -1;
+}
+article{
+    display: block;
+}
 menu{
     margin-top: 0;
     width: 100%;
@@ -15,6 +25,8 @@ menu{
 .nazwa{
     font-size: 30px;
     font-weight: 700;
+    position: relative;
+    top: -2px;
 }
 .flo{
     float: right;
@@ -34,34 +46,283 @@ menu{
     align-items: center;
 }
 .opt:hover{
-    background: antiquewhite;
-    color: #37332d;
+    background: #8e715a;
+    color: antiquewhite;
 }
+#link_bar a { text-decoration: none; }
+    #link_bar a:link { color: antiquewhite; }
+    #link_bar a:visited { color: antiquewhite;}
+    #link_bar a:hover { color: antiquewhite; background-color:#8e715a; }
+    #link_bar a:active { color: antiquewhite;}
+
 .home{
     float: left;
     display: flex;
     margin-right: 4px;
     margin-top: 2px;
 }
-nav{
-    height: 400px;
+main{
+    position: relative;
+    top: -17px;
     display: flex;
-    overflow: hidden;
     float: left;
+    align-items: center;
 }
-
-.anim{
-    animation-iteration-count: infinite;
-    width: 0;
-    animation-timing-function: cubic-bezier(0,0.96,0.07,0.85);
-    animation-duration: 2s;
+nav{
+    height: 425px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 100%;
 }
-.anim2{
-    animation-delay: 2s;
+.bcol{
+    width: 100%;
+    height: 100%;
+    background: rgba(230, 218, 206, 0.6);
+    z-index: 0;
 }
-.anim3{
-    animation-delay: 4s;
+.slideshow {
+    list-style-type: none;
+    opacity: 100%;
 }
-.anim4{
-    animation-delay: 4s;
+.slideshow,
+.slideshow:after { 
+    top: -16px;
+        position: fixed;
+    height: 383px;
+    width: 711px;
+    left: 20px;
+    z-index: 1; 
+}
+.slideshow li span { 
+    position: absolute;
+    height: 383px;
+    width: 711px;
+    top: 80px;
+    left: 20px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 1;
+    animation: imageAnimation 30s linear infinite 0s; 
+}
+.slideshow li:nth-child(1) span { 
+    background-image: url("1.jpg"); 
+}
+.slideshow li:nth-child(2) span { 
+    background-image: url("2.jpg");
+    animation-delay: 6s; 
+}
+.slideshow li:nth-child(3) span { 
+    background-image: url("3.jpg");
+    animation-delay: 12s; 
+}
+.slideshow li:nth-child(4) span { 
+    background-image: url("4.jpg");   
+    animation-delay: 18s; 
+}
+.slideshow li:nth-child(5) span { 
+    background-image: url("5.jpg");
+    animation-delay: 24s; 
+}
+@keyframes imageAnimation { 
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+@keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+.no-cssanimations .cb-slideshow li span {
+    opacity: 1;
+}
+.info{
+    width: 100%;
+    display: block;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    color: antiquewhite;
+    font-size: 15px;
+    background: rgba(55, 51, 45, 0.6);
+    top: 470px;
+    height: 100px;
+}
+.heads{
+    font-weight: 500;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.up{
+    position: fixed;
+    bottom: 80px;
+}
+.rekl{
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 1%;
+}
+@media(max-width:771px){
+    article{
+        display: block;
+    }
+    body{
+        height: 1100px;
+        background-image: url("bg.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+    }
+    .tlo{
+        display: none;
+    }
+    .bar{
+        width: 25%;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+    main{
+        width: 100%;
+        overflow: hidden;
+    }
+    .bcol{
+        width: 100%;
+    }
+    nav{
+        height: 350px;
+        display: flex;
+        float: left;
+        align-items: center;
+    }
+    .slideshow,
+    .slideshow:after{
+        top: 20px;
+        width: 500px;
+        height: 269px;
+    }
+    .slideshow li span{
+        position: absolute;
+        width: 500px;
+        height: 269px;
+    }
+    .info{
+        top: 420px;
+        height: 200px;
+        font-size: 17px;
+    }
+    .heads{
+        margin-top: 20px;
+    }
+}
+@media(max-width:565px){
+    .bar{
+        width: 40%;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    main{
+        width: 100%;
+        overflow: hidden;
+    }
+    .bcol{
+        width: 100%;
+    }
+    nav{
+        height: 275px;
+        display: flex;
+        float: left;
+        align-items: center;
+    }
+    .slideshow,
+    .slideshow:after{
+        width: 400px;
+        height: 215.2px;
+    }
+    .slideshow li span{
+        width: 400px;
+        height: 215.2px;
+    }
+    .info{
+        top: 345px;
+        height: 200px;
+        font-size: 17px;
+    }
+    .heads{
+        margin-top: 10px;
+    }
+}
+@media(max-width:450px){
+    body{
+        height: 1000px;
+        background-image: url("bg.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+    }
+    .tlo{
+        display: none;
+    }
+    menu{
+        z-index: 1;
+        display: flex;
+        float: left;
+    }
+    .nazwa{
+        position: relative;
+        left: 10px;
+        display: flex;
+        margin-top: 6px;
+        line-height: 25px;
+    }
+    .flo{
+        position: fixed;
+        left: 4px;
+    }
+    .bar{
+        width: 50%;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    main{
+        width: 100%;
+        overflow: hidden;
+    }
+    .bcol{
+        width: 100%;
+    }
+    nav{
+        height: 245px;
+        display: flex;
+        float: left;
+        align-items: center;
+    }
+    .slideshow,
+    .slideshow:after{
+        left: 0;
+    }
+    .slideshow li span{
+        left: 0;
+        top: 65px;
+    }
+    .info{
+        top: 315px;
+        height: 250px;
+        font-size: 17px;
+    }
+    .heads{
+        margin-top: 10px;
+    }
 }
